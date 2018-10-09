@@ -12,21 +12,25 @@ public class NewBehaviourScript : MonoBehaviour
     public float timer;
     public Color color;
     public SpriteRenderer rend;
+    public int Speed;
 
     // Use this for initialization
     void Start()
     {
-
+        //gör att skeppet spawnar vid en random position på skärmen
+        transform.position =  new Vector3(Random.Range(-10, 10), Random.Range(-10, 10));
+        // gör att skeppet får en random fart när man startar spelet
+        Speed = Random.Range(2, 8);
     }
 
     // Update is called once per frame
     void Update()
     {   //skeppet kommer alltid att åka framåt
-        transform.Translate(0, 8 * Time.deltaTime, 0, Space.Self);
+        transform.Translate(0, Speed * Time.deltaTime, 0, Space.Self);
         //om man trycker S så kommer skeppet att flyga hälfet så snabbt
         if (Input.GetKey(KeyCode.S))
         {
-            transform.Translate(0, -4f * Time.deltaTime, 0, Space.Self);
+            transform.Translate(0, -Speed / 2 * Time.deltaTime, 0, Space.Self);
         }
         //när man trycker A kommer skeppet flyga åt vänster och byta färg till grön
         if (Input.GetKey(KeyCode.A))
@@ -62,10 +66,17 @@ public class NewBehaviourScript : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, (transform.position.y * -1));
         }
+       //timer, 
         if (Time.time > LastPrint + 1f)
         {
             LastPrint = Mathf.RoundToInt(Time.time);
             Debug.Log("timer:" + LastPrint);
+
+            float RandomColor1 = Random.Range(0f, 1f);
+            float RandomColor2 = Random.Range(0f, 1f);
+            float RandomColor3 = Random.Range(0f, 1f);
+            Color color = new Color(RandomColor1, RandomColor2, RandomColor3);
+            rend.color = color;
         }
     }
 }
