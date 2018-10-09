@@ -201,6 +201,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e398dd8a9c11fd349a006e9e754c4369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rend1: {fileID: 0}
+  RandomColor1: 0
+  RandomColor2: 0
+  RandomColor3: 0
+  timer: 0
   color: {r: 0, g: 0, b: 0, a: 0}
   rend: {fileID: 549635895}
 --- !u!1 &519420028
