@@ -66,16 +66,20 @@ public class NewBehaviourScript : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, (transform.position.y * -1));
         }
-       //timer, 
+       //timer.
         if (Time.time > LastPrint + 1f)
         {
+            //printar tiden en gång i sekunden.
             LastPrint = Mathf.RoundToInt(Time.time);
             Debug.Log("timer:" + LastPrint);
 
+            //RGB som har random värden.
             float RandomColor1 = Random.Range(0f, 1f);
             float RandomColor2 = Random.Range(0f, 1f);
             float RandomColor3 = Random.Range(0f, 1f);
+            //koden här väljer ett värde.
             Color color = new Color(RandomColor1, RandomColor2, RandomColor3);
+            //koden här renderar färgen.
             rend.color = color;
         }
     }
